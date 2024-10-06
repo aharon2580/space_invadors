@@ -44,10 +44,13 @@ class Manager:
         text_rect.center = (st.screen_width * 0.5, st.screen_height * 0.5)
         mouse = pygame.mouse.get_pos()
         if not text_rect.collidepoint(mouse):
+            pygame.mouse.set_visible(True)
             self.screen.blit(text, text_rect)
             pygame.display.update()
         if text_rect.collidepoint(mouse):
+            pygame.mouse.set_visible(False)
             self.write_text(st.level_text[self.level], 60, (st.screen_width * 0.5, st.screen_height * 0.5), 'green')
+            self.screen.blit(st.cursor_image, mouse)
             pygame.display.update()
             if pygame.mouse.get_pressed()[0]:
                 pygame.mixer.music.load(st.start_level_sound)
