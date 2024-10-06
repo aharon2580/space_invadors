@@ -5,11 +5,13 @@ from new_manager import Manager
 game = Manager()
 game.init_game()
 
-run = True
-while run:
+running = True
+while running:
     game.game_loop()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
-    game.clock.tick(60)
+            running = False
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            running = False
+    game.clock.tick(45)
 pygame.quit()
