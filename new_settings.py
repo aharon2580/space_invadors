@@ -12,6 +12,12 @@ class Settings:
         self.victory_sound = [0, 'victory1.mp3', 'victory2.mp3', 'victory3.mp3']
         self.start_level_sound = 'start_level.wav'
         self.game_over_sound = 'game_over.wav'
+        self.cursor = pygame.image.load("cursor.png")
+        self.cursor_image = pygame.transform.scale(self.cursor, (50, 35))
+        self.cursor_image.fill((255, 0, 0, 100), special_flags=pygame.BLEND_ADD)  
+
+
+
 
         # Player settings:
         self.player_image = 'ship.bmp'
